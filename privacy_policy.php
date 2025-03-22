@@ -5,7 +5,7 @@
             <div class="entry-content" itemprop="mainContentOfPage">
                 <div class="section mcb-section  section-border-top "  style="padding-top:40px; padding-bottom:0px; background-color:#f9f9f9" >
                     <div class="section_wrapper mcb-section-inner">
-                        <div class="wrap mcb-wrap one  clearfix" style="padding:; background-color:" >
+                        <div class="wrap mcb-wrap one  clearfix" >
 							<h1>Privacy Policy for VK Softwares</h1>
 							<p>At VK Softwares, accessible from http://vksoftwares.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by VK Softwares and how we use it.</p>
 							<p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
