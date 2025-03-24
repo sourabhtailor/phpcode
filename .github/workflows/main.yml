@@ -29,6 +29,15 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "SonarQube Version: $VERSION"
 
+      - name: Get Last Version from SonarQube
+        id: get_last_version
+        run: |
+          LAST_VERSION=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: \
+            "${{ secrets.SONAR_HOST_URL }}/api/project_analyses/search?project=${{ secrets.SONAR_PROJECT_KEY }}" \
+            | jq -r '.analyses[0].revision')
+          echo "LAST_VERSION=$LAST_VERSION" >> $GITHUB_ENV
+          echo "Previous SonarQube Version: $LAST_VERSION"
+
       - name: Run SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
@@ -37,6 +46,8 @@ jobs:
         with:
           args: >
             -Dsonar.projectVersion=${{ env.VERSION }}
+            -Dsonar.scanner.metadataFilePath=.scannerwork/report-task.txt
+            -Dsonar.previousAnalysisVersion=${{ env.LAST_VERSION }}
 
       - name: Quality Gate Check
         uses: SonarSource/sonarqube-quality-gate-action@v1
