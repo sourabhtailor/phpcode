@@ -46,7 +46,7 @@ jobs:
         with:
           args: >
             -Dsonar.projectVersion=${{ env.VERSION }}
-            -Dsonar.scanner.metadataFilePath=.scannerwork/report-task.txt
+            -Dsonar.scanner.metadataFilePath=${{ github.workspace }}/.scannerwork/report-task.txt
             -Dsonar.previousAnalysisVersion=${{ env.LAST_VERSION }}
 
       - name: Quality Gate Check
